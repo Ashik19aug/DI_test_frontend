@@ -16,9 +16,7 @@ const Login = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent the form from refreshing the page
-        console.log('email, password', email, password);
-        return;
+        e.preventDefault();
         // API endpoint URL
         const url = 'http://localhost/api/login';
 
@@ -34,7 +32,7 @@ const Login = () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Login successful:', data);
-                // Handle successful login (e.g., save token, redirect, etc.)
+                navigate("/teams");
             } else {
                 const errorData = await response.json();
                 setErrorMessage(errorData.message || 'Login failed');
@@ -84,6 +82,7 @@ const Login = () => {
                     )}
                     <div className="flex items-center justify-between">
                         <button
+                            onClick={handleSubmit}
                             type="submit"
                             className="bg-gradient-to-r from-blue-400 to-purple-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
                         >

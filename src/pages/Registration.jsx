@@ -131,6 +131,7 @@ const Registration = () => {
                     )}
                     <div className="flex items-center justify-between">
                         <button
+                            onClick={handleSubmit}
                             type="submit"
                             className="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
                         >
